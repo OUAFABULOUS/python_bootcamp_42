@@ -16,13 +16,12 @@ def	print_recipe_names(dict):
         print(list(dict.keys())[i])
 
 def	print_recipe_details(dict, recipe):
+    print("RECIPE: ", end="")
+    print(recipe.upper())
     print_details(dict[recipe])
 
 def	delete_recipe(dict, recipe):
-    for i in range(len(dict)):
-        if (list(dict.keys())[i] == recipe):
-            del(dict[recipe])
-            quit
+    del(dict[recipe])
 
 def	add_recipe_from_input(dict):
     name = None
@@ -40,15 +39,30 @@ if __name__== "__main__":
     cookbook = {"Sandwich" : fill_recipe_dict(["ham", "bread", "cheese", "tomatoes"], "lunch", 10)}
     cookbook.update({"Cake" : fill_recipe_dict(["flour", "sugar", "eggs"],"dessert",60)})
     cookbook.update({"Salad" : fill_recipe_dict(["avocado", "arugula", "tomatoes", "spinach"], "lunch", 15)})
-    # print(cookbook["Salad"]["ingredients"][1])
-    print_recipe_names(cookbook)
-    print_recipe_details(cookbook, "Sandwich")
-    # sys.stdout.flush()
-    # delete_recipe("Sandwich")
-    print_recipe_details(cookbook, "Sandwich")
-
-    # add_recipe_from_input(cookbook)
-    # print_recipe_details(cookbook, "Salad")
-
+    print("Welcome to the Pyhton Cookbook !")
+    print("List of available options:")
+    print("	1: Add a recipe")
+    print("	2: Delete a recipe")
+    print("	3: Print a recipe")
+    print("	4: Print the cookbook")
+    print("	5: Quit")
+    while True:
+         option = None
+         while option == None or int(option) < 1 or int(option) > 5:
+             option = input("Please select an option:\n")
+         if int(option) == 1:
+             add_recipe_from_input(cookbook)
+         elif int(option) == 2:
+             recipe = input("The name of the recipe you want to delete: ")
+             delete_recipe(cookbook, recipe)
+         elif int(option) == 3:
+             recipe = input ("The name of the recipe you want to print: ")
+             print_recipe_details(cookbook, recipe)
+         elif int(option) == 4:
+             for i in range(len(cookbook)):
+                 print_recipe_details(cookbook, list(cookbook.keys())[i])
+         else:
+             print("Cookbook closed. Goodbye !")
+             exit(1)
 
 
