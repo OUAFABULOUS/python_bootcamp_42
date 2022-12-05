@@ -1,0 +1,4 @@
+pip -list
+python -m pip show numpy
+python -m pip uninstall numpy
+python -m pip install numpy
