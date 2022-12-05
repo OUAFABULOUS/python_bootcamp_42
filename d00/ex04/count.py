@@ -1,4 +1,4 @@
-import sys
+ port sys
 import string
 
 def text_analyzer(*ag):
