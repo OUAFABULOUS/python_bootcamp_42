@@ -1,4 +1,5 @@
 from FileLoader import FileLoader
+import matplotlib.pyplot as plt
 import pandas  as pd
 
 def how_many_medals(df, name):
