@@ -18,6 +18,7 @@ class TinyStistician:
             n = len(x)
             if not n % 2:
                 quartiles.append(median(x[:n / 2]))
+                
                 quartiles.append(median(x[n / 2:]))
             else
                 quartiles.append(median(x[: (n + 1) / 2]))
